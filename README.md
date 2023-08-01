@@ -1,39 +1,71 @@
-# Personalized Post Recommendation System for Social Network
 
-## Overview:
-This project presents a personalized post recommendation system designed for a social network with the primary goal of enhancing user experience and increasing user satisfaction.
+# Система персонализированных рекомендаций постов для социальной сети
+## Обзор:
+Этот проект представляет собой систему персонализированных рекомендаций постов, разработанную для социальной сети с основной целью улучшения пользовательского опыта и повышения удовлетворенности пользователей.
 
-## Functionality:
-The social network offers the following functionality:
+## Цель проекта:
+Основная цель этого проекта - разработать сложную систему рекомендаций, которая может предоставлять персонализированные рекомендации постов для каждого пользователя. Система достигает этого, анализируя характеристики профиля пользователя, историческую активность и содержание постов.
 
-Messaging feature to enable users to send messages to each other.
-Creation of communities similar to groups in popular social networks.
-Posting functionality to allow users to create and publish posts within communities.
-During the registration process, students are required to fill out their profiles, which contain personal information. All profile data is stored in a postgres database.
+## Метрика оценки:
+Качество системы рекомендаций будет оцениваться с использованием метрики hitrate@5. Эта метрика измеряет эффективность рекомендаций на основе скрытого набора пользователей и временных меток.
 
-## Project Objective:
-The main objective of this project is to develop a sophisticated recommendation system that can provide personalized post recommendations for each user. The system achieves this by analyzing user profile characteristics, historical activity, and post content.
+## План проекта:
+Проект включает в себя следующие этапы:
 
-## Evaluation Metric:
-The quality of the recommendation system will be evaluated using the hitrate@5 metric. This metric measures the effectiveness of recommendations based on a hidden set of users and timestamps.
+- Исследование данных:
+Данные были загружены из базы данных PostgreSQL в Jupyter Hub для комплексного исследования данных. 
 
-## Project Plan:
-The project consists of the following stages:
+Таблица user_data
+Cодержит информацию о всех пользователях соц.сети
+| Field name | Overview                                          |
+|------------|---------------------------------------------------|
+| age        | Возраст пользователя (в профиле)                  |
+| city       | Город пользователя (в профиле)                    |
+| country    | Страна пользователя (в профиле)                   |
+| exp_group  | Экспериментальная группа: некоторая зашифрованная категория |
+| gender     | Пол пользователя                                 |
+| user_id    | Уникальный идентификатор пользователя             |
+| os         | Операционная система устройства, с которого происходит пользование соц.сетью |
+| source     | Пришел ли пользователь в приложение с органического трафика или с рекламы |
 
-1. Data Exploration:
-Data was loaded from the database into Jupyter Hub for a comprehensive data exploration.
-2. Feature Engineering and Training Data Preparation:
-Feature engineering will involve extracting relevant features from user profiles and post content.
-The training data will be prepared using the extracted features and historical user interactions.
-3. Model Training and Validation:
-The recommendation model was trained on Jupyter Hub using the prepared training data.
+Таблица post_text_df
+Содержит информацию о постах и уникальный ID каждой единицы с соответствующим ей текстом и топиком
 
-4. Model Persistence:
-The trained recommendation model is saved for future use.
-5. Service Development:
-A service was developed to load the saved model and provide personalized post recommendations based on user features.
-6. Deployment and Testing:
-The service and model could be deployed to the Cloud
+| Field name | Overview                       |
+|------------|--------------------------------|
+| id         | Уникальный идентификатор поста  |
+| text       | Текстовое содержание поста      |
+| topic      | Основная тематика               |
+
+Таблица feed_data
+Содержит историю о просмотренных постах для каждого юзера в изучаемый период.
+
+| Field name | Overview                                          |
+|------------|---------------------------------------------------|
+| age        | Возраст пользователя (в профиле)                  |
+| city       | Город пользователя (в профиле)                    |
+| country    | Страна пользователя (в профиле)                   |
+| exp_group  | Экспериментальная группа: некоторая зашифрованная категория |
+| gender     | Пол пользователя                                 |
+| user_id    | Уникальный идентификатор пользователя             |
+| os         | Операционная система устройства, с которого происходит пользование соц.сетью |
+| source     | Пришел ли пользователь в приложение с органического трафика или с рекламы |
 
 
-Upon completion, the project will deliver a sophisticated recommendation system integrated into the social network, providing users with a personalized and enjoyable experience.
+- Создание признаков и подготовка обучающих данных:
+Создание признаков включает извлечение соответствующих характеристик из профилей пользователей и содержания постов.
+Подготовка обучающих данных включает использование извлеченных признаков и исторических взаимодействий пользователей.
+
+- Обучение и проверка модели:
+Модель рекомендаций обучалась на Jupyter Hub с использованием подготовленных обучающих данных.
+
+- Сохранение модели:
+Обученная модель рекомендаций сохраняется для будущего использования.
+
+- Разработка сервиса:
+Создается сервис для загрузки сохраненной модели и предоставления персонализированных рекомендаций постов на основе характеристик пользователя.
+
+- Развертывание и тестирование:
+Сервис и модель могут быть развернуты на облачной платформе. 
+
+По завершении проекта будет представлена сложная система рекомендаций, интегрированная в социальную сеть, предоставляющая пользователям персонализированный и приятный опыт.
