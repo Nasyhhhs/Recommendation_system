@@ -21,20 +21,19 @@ The quality of the recommendation system will be evaluated using the hitrate@5 m
 The project consists of the following stages:
 
 1. Data Exploration:
-Data will be loaded from the database into Jupyter Hub for a comprehensive data exploration.
+Data was loaded from the database into Jupyter Hub for a comprehensive data exploration.
 2. Feature Engineering and Training Data Preparation:
 Feature engineering will involve extracting relevant features from user profiles and post content.
 The training data will be prepared using the extracted features and historical user interactions.
 3. Model Training and Validation:
-The recommendation model will be trained on Jupyter Hub using the prepared training data.
-The quality of the model will be assessed on the validation set.
+The recommendation model was trained on Jupyter Hub using the prepared training data.
+
 4. Model Persistence:
-The trained recommendation model will be saved for future use.
+The trained recommendation model is saved for future use.
 5. Service Development:
-A service will be developed to load the saved model and provide personalized post recommendations based on user features.
+A service was developed to load the saved model and provide personalized post recommendations based on user features.
 6. Deployment and Testing:
-The service and model will be deployed to the LMS for testing using the provided checker.
-Utilized Algorithms:
-The project incorporates various recommendation algorithms explored during the course to achieve optimal post recommendations for social network users. Emphasis will be placed on ensuring fast execution and memory efficiency to deliver an effective service.
+The service and model could be deployed to the Cloud
+
 
 Upon completion, the project will deliver a sophisticated recommendation system integrated into the social network, providing users with a personalized and enjoyable experience.
